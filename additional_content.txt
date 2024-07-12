@@ -7,24 +7,27 @@
     .stack-top{
         position: fixed;
         border-radius: 10px;
-        margin: 20px;
+        margin: 10px;
         padding: 10px;
         z-index: 1000000;
         background-color: rgba(140,140,140,0.85);
-        color: rgba(255,255,255,1);
-        font-family: Arial;
     }
+    pre.stack-top {                                                                                         
+        color: rgba(255,255,255,1);                                                                             
+        margin: 0;                                                                                              
+        font-family: Arial;                                                                                     
+    }  
 </style>
 <div class="containerstack">
         <div class="stack-top">
           <?php 
-            echo "<pre display:inline; margin:0;>Hostname "."\t".": ".getenv('HOSTNAME')."\n";
-            echo "Server IP "."\t".": ".$_SERVER['SERVER_ADDR']."\n";
-            echo "Server Port "."\t".": ".$_SERVER['SERVER_PORT']."\n";
-            echo "Remote IP "."\t".": ".$_SERVER['REMOTE_ADDR']."\n";
-            echo "Remote Port "."\t".": ".$_SERVER['REMOTE_PORT']."\n";
-            echo "Request Method "."\t".": ".$_SERVER['REQUEST_METHOD']."\n";
-            echo "Request URI "."\t".": ".$_SERVER['REQUEST_URI']."\n";
-            echo "Server Protocol : ".$_SERVER['SERVER_PROTOCOL']."</pre>";
+            echo "<pre class=stack-top>Hostname "."\t\t".": ".getenv('HOSTNAME')."\n"; 
+            echo "Server IP "."\t\t".": ".$_SERVER['SERVER_ADDR']."\n";        
+            echo "Server Port "."\t\t".": ".$_SERVER['SERVER_PORT']."\n";      
+            echo "Remote IP "."\t\t".": ".$_SERVER['REMOTE_ADDR']."\n";       
+            echo "Remote Port "."\t\t".": ".$_SERVER['REMOTE_PORT']."\n";     
+            echo "Request Method "."\t".": ".$_SERVER['REQUEST_METHOD']."\n"; 
+            echo "Request URI "."\t\t".": ".$_SERVER['REQUEST_URI']."\n";     
+            echo "Server Protocol "."\t".": ".$_SERVER['SERVER_PROTOCOL']."</pre>";
           ?>
         </div>
