@@ -7,27 +7,50 @@
     .stack-top{
         position: fixed;
         border-radius: 10px;
-        margin: 10px;
+        margin: 20px;
         padding: 10px;
         z-index: 1000000;
         background-color: rgba(140,140,140,0.85);
+        color: rgba(255,255,255,1);
+        font-family: 'Courier New', monospace;
     }
-    pre.stack-top {                                                                                         
-        color: rgba(255,255,255,1);                                                                             
-        margin: 0;                                                                                              
-        font-family: Arial;                                                                                     
-    }  
-</style>
+    .button-stack-top {
+        position: fixed;
+        border-radius: 50%;
+        text-align: center;
+        vertical-align: middle;
+        height: 25px;
+        width: 25px;
+        margin: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        z-index: 1000001;
+        background-color: rgba(255,0,0,0.85);
+    }
+}
+<script>
+   function hideElement() {
+      var x = document.getElementById("stacktop");
+      if (x.style.display === "none") {
+         x.style.display = "block";
+         document.getElementById("button-stack-top-text").innerHTML = "<";
+      } else {
+         x.style.display = "none";
+         document.getElementById("button-stack-top-text").innerHTML = ">";
+      }
+   }
+</script>
 <div class="containerstack">
-        <div class="stack-top">
-          <?php 
-            echo "<pre class=stack-top>Hostname "."\t\t".": ".getenv('HOSTNAME')."\n"; 
-            echo "Server IP "."\t\t".": ".$_SERVER['SERVER_ADDR']."\n";        
-            echo "Server Port "."\t\t".": ".$_SERVER['SERVER_PORT']."\n";      
-            echo "Remote IP "."\t\t".": ".$_SERVER['REMOTE_ADDR']."\n";       
-            echo "Remote Port "."\t\t".": ".$_SERVER['REMOTE_PORT']."\n";     
-            echo "Request Method "."\t".": ".$_SERVER['REQUEST_METHOD']."\n"; 
-            echo "Request URI "."\t\t".": ".$_SERVER['REQUEST_URI']."\n";     
-            echo "Server Protocol "."\t".": ".$_SERVER['SERVER_PROTOCOL']."</pre>";
+   <div class="button-stack-top" id="button-stack-top-text" onclick="hideElement()"> < </div>
+   <div class="stack-top" id="stacktop">
+          <?php
+            echo "Hostname"."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".": ".getenv('HOSTNAME')."<br>";
+            echo "Server IP"."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".": ".$_SERVER['SERVER_ADDR']."<br>";
+            echo "Server Port"."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".": ".$_SERVER['SERVER_PORT']."<br>";
+            echo "Remote IP"."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".": ".$_SERVER['REMOTE_ADDR']."<br>";
+            echo "Remote Port"."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".": ".$_SERVER['REMOTE_PORT']."<br>";
+            echo "Request Method"."&nbsp;&nbsp;".": ".$_SERVER['REQUEST_METHOD']."<br>";
+            echo "Request URI"."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".": ".$_SERVER['REQUEST_URI']."<br>";
+            echo "Server Protocol"."&nbsp;".": ".$_SERVER['SERVER_PROTOCOL'];
           ?>
         </div>
